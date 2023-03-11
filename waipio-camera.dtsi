@@ -312,35 +312,6 @@
 		};
 	};
 
-	cam_sensor_active_rst0: cam_sensor_active_rst0 {
-		/* RESET REAR */
-		mux {
-			pins = "gpio25";
-			function = "gpio";
-		};
-
-		config {
-			pins = "gpio25";
-			bias-disable; /* No PULL */
-			drive-strength = <2>; /* 2 MA */
-		};
-	};
-
-	cam_sensor_suspend_rst0: cam_sensor_suspend_rst0 {
-		/* RESET REAR */
-		mux {
-			pins = "gpio25";
-			function = "gpio";
-		};
-
-		config {
-			pins = "gpio25";
-			bias-pull-down; /* PULL DOWN */
-			drive-strength = <2>; /* 2 MA */
-			output-low;
-		};
-	};
-
 	cam_sensor_active_rst1: cam_sensor_active_rst1 {
 		/* RESET REARAUX */
 		mux {
@@ -993,7 +964,7 @@
 					/* Shared region is ~250MB long */
 					iova-region-name = "shared";
 					iova-region-start = <0x800000>;
-					iova-region-len = <0xFC00000>;
+					iova-region-len = <0x12E00000>;
 					iova-region-id = <0x1>;
 					status = "ok";
 				};
@@ -1001,7 +972,7 @@
 				iova-mem-region-fwuncached-region {
 					/* FW uncached region is 7MB long */
 					iova-region-name = "fw_uncached";
-					iova-region-start = <0x10400000>;
+					iova-region-start = <0x13600000>;
 					iova-region-len = <0x700000>;
 					iova-region-id = <0x6>;
 					status = "ok";
@@ -1010,8 +981,8 @@
 				iova-mem-region-io {
 					/* IO region is approximately 3.8 GB */
 					iova-region-name = "io";
-					iova-region-start = <0x10c00000>;
-					iova-region-len = <0xee300000>;
+					iova-region-start = <0x13e00000>;
+					iova-region-len = <0xeb100000>;
 					iova-region-id = <0x3>;
 					iova-region-discard = <0xe0000000 0x800000>;
 					status = "ok";
@@ -1020,7 +991,7 @@
 				iova-mem-qdss-region {
 					/* QDSS region is appropriate 1MB */
 					iova-region-name = "qdss";
-					iova-region-start = <0x10b00000>;
+					iova-region-start = <0x13D00000>;
 					iova-region-len = <0x100000>;
 					iova-region-id = <0x5>;
 					qdss-phy-addr = <0x16790000>;
